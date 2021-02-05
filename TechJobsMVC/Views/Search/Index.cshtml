@@ -27,7 +27,37 @@
     <hr />
 
     @{
-        //TODO #4: Loop over the search results to display all job fields.
-    }
+        @if (ViewBag.jobs != null)
+        {
+            <h1>@ViewBag.title</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Employer</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Position Type</th>
+                        <th scope="col">Skill</th>
+                    </tr>
+                </thead>
 
-</div>
+                <tbody>
+                    @foreach (Job meeting in ViewBag.jobs)
+                    {
+                        <tr>
+                            <td>@meeting.Id</td>
+                            <td>@meeting.Name</td>
+                            <td>@meeting.Employer</td>
+                            <td>@meeting.Location</td>
+                            <td>@meeting.PositionType</td>
+                            <td>@meeting.CoreCompetency</td>
+                        </tr>
+                    }
+                </tbody>
+                
+            </table>
+            }
+        }
+
+    </div>
